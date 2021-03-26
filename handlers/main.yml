@@ -1,0 +1,7 @@
+---
+# samba4_ad_client_sssd/handlers/main.yml
+
+- name: 'Restart SSSD service'
+  service:
+    name: "{{ sssd_service }}"
+    state: 'restarted'
