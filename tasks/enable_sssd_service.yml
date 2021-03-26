@@ -1,0 +1,7 @@
+---
+# samba4_ad_client_sssd/tasks/enable_sssd_service.yml
+
+- name: 'Enable the SSSD service'
+  service:
+    name: "{{ sssd_service }}"
+    enabled: 'true'
