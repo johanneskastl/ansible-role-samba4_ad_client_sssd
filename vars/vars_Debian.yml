@@ -1,0 +1,14 @@
+---
+# samba4_ad_client_sssd/vars/vars_Debian.yml
+
+# packages to be installed
+sssd_packages:
+  - sssd
+  - sssd-tools
+  - libnss-sss
+  - libpam-sss
+  - samba-common-bin
+  - krb5-user
+
+# service that should enabled and started
+sssd_service: 'sssd'
