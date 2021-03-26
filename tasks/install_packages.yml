@@ -1,0 +1,7 @@
+---
+# samba4_ad_client_sssd/tasks/install_packages.yml
+
+- name: 'Install SSSD packages'
+  package:
+    name: "{{ sssd_packages }}"
+    state: 'present'
