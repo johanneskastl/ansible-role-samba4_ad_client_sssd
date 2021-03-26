@@ -1,0 +1,19 @@
+#
+# {{ ansible_managed }}
+#
+[sssd]
+services = nss, pam
+config_file_version = 2
+domains = {{ ad_domain }}
+
+[nss]
+
+[pam]
+
+[domain/{{ ad_domain }}]
+id_provider = ad
+access_provider = ad
+enumerate = false
+krb5keytab=/etc/krb5.sssd.keytab
+ldap_idmapping = true
+ldap_schema = ad
