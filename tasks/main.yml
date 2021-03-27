@@ -7,6 +7,17 @@
     - "vars_{{ ansible_distribution }}.yml"
     - "vars_{{ ansible_os_family }}.yml"
 
+- name: 'Check if /etc/krb5.sssd.keytab exists'
+  ansible.builtin.stat:
+    path: '/etc/krb5.sssd.keytab'
+  register: stat_krb5_sssd_keytab
+  changed_when: 'false'
+
+- name: 'Fail if /etc/krb5.sssd.keytab does not exist'
+  fail:
+    msg: '/etc/krb5.sssd.keytab does not exist'
+  when: 'stat_krb5_sssd_keytab.stat.exists is false'
+
 - name: 'Install packages'
   include_tasks: install_packages.yml
 
