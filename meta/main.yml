@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: 'samba4_ad_client_sssd'
+  namespace: 'johanneskastl'
   author: 'Johannes Kastl'
   description: 'Joining a linux client to a Samba4 Active Directory using SSSD'
   company: 'B1 Systems GmbH'
