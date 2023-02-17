@@ -2,7 +2,7 @@
 # samba4_ad_client_sssd/tasks/main.yml
 
 - name: "Load variables"
-  include_vars: "{{ item }}"
+  ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
     - "vars_{{ ansible_distribution }}.yml"
     - "vars_{{ ansible_os_family }}.yml"
@@ -14,15 +14,15 @@
   changed_when: 'false'
 
 - name: 'Fail if /etc/krb5.sssd.keytab does not exist'
-  fail:
+  ansible.builtin.fail:
     msg: '/etc/krb5.sssd.keytab does not exist'
   when: 'stat_krb5_sssd_keytab.stat.exists is false'
 
 - name: 'Install packages'
-  include_tasks: install_packages.yml
+  ansible.builtin.include_tasks: install_packages.yml
 
 - name: 'Configure SSSD'
-  include_tasks: configure_sssd.yml
+  ansible.builtin.include_tasks: configure_sssd.yml
 
 - name: 'Enable the SSSD service'
-  include_tasks: enable_sssd_service.yml
+  ansible.builtin.include_tasks: enable_sssd_service.yml
